@@ -30,7 +30,8 @@ public class HelloListener {
 
     @JmsListener(destination = JmsConfig.MY_SEND_RECEIVE_QUEUE)
     public void listenForHello(@Payload HelloWorldMessage helloWorldMessage,
-                               @Headers MessageHeaders headers, Message message) throws JMSException {
+                               @Headers MessageHeaders headers, Message message,
+                               org.springframework.messaging.Message springMessage) throws JMSException {
 
         HelloWorldMessage payloadMsg = HelloWorldMessage
                 .builder()
